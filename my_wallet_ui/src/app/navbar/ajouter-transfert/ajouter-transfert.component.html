@@ -1,0 +1,52 @@
+<div class="modal-header">
+    <h4 class="modal-title">Ajouter des transferts</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+</div>
+<div class="conteneur-transferts">
+    <div class="conteneur-transfert" *ngFor="let trsf of transferts,index as indexTrsf">
+
+            <div ngbDropdown class="d-inline-block item-trsf" container="body">
+                <button type="button" class="btn btn-outline-primary" id="dd_comptes_src" ngbDropdownToggle>
+                    {{trsf.compteSource}}
+                </button>
+                <div ngbDropdownMenu aria-labelledby="dd_comptes_src">
+                    <button ngbDropdownItem *ngFor="let cp of comptes"
+                        (click)="majCompteSrc(indexTrsf,cp.nom)">{{cp.nom}}</button>
+                </div>
+            </div>
+            
+            
+            <div ngbDropdown class="d-inline-block item-trsf" container="body">
+                <button type="button" class="btn btn-outline-primary" id="dd_comptes_dest" ngbDropdownToggle>
+                    {{trsf.compteDestination}}
+                </button>
+                <div ngbDropdownMenu aria-labelledby="dd_comptes_dest">
+                    <button ngbDropdownItem *ngFor="let cp of comptes"
+                        (click)="majCompteDest(indexTrsf,cp.nom)">{{cp.nom}}</button>
+                </div>
+            </div>
+            <input class="input-pourcentage-trsf"  type="number" [placeholder]="placeholderPourcentage" [(ngModel)]="trsf.pourcentageTransfert">
+
+            <form class="date-trsf" >
+                <div class="input-group">
+                    <input
+                        class="form-control"
+                        placeholder="yyyy-mm-dd"
+                        name="dp"
+                        [(ngModel)]="trsf.date"
+                        ngbDatepicker
+                        #d="ngbDatepicker"
+                        container="body"
+                    />
+                    <span class="btn btn-outline-secondary" (click)="d.toggle()" type="button"><i class="fa-solid fa-calendar-days"></i></span>
+                </div>
+            </form>
+            
+            <button type="button" class="btn btn-outline-dark btn-supprimer-trsf" (click)="supprimerTransfert(indexTrsf)" ><i class="fa-solid fa-trash-can"></i></button>
+    </div>
+
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark btn-ajouter-trsf" (click)="ajouterTransfert()" >Ajouter</button>
+    <button type="button" class="btn btn-outline-dark btn-valider" (click)="passBack()" [disabled]="desactiverBtn()" >Valider</button>
+</div>

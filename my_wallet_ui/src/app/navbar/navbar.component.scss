@@ -1,0 +1,14 @@
+.mon-navbar{
+    display: flex;
+    align-items: center;
+    gap: 3em;
+    height: 100%;
+    padding: 0 2em;
+    
+    background-color: red;
+
+    .navbar-item{
+        color: white;
+        cursor: pointer;
+    }
+}

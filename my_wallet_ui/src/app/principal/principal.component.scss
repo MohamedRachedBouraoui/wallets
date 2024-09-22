@@ -1,0 +1,25 @@
+.conteneur-principal {
+
+    min-height: 100%;
+    
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-areas: "conteneur-resumes-bilans conteneur-details-bilans";
+    grid-column-gap: 5em;
+}
+
+.conteneur-resumes-bilans {
+    grid-area: conteneur-resumes-bilans;   
+}
+
+.conteneur-details-bilans {
+    grid-area: conteneur-details-bilans;
+
+}
+
+.conteneur-resumes-bilans{
+    background-color: whitesmoke;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    min-width: 36em;
+}

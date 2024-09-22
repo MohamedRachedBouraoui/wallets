@@ -1,0 +1,14 @@
+
+
+body{
+    margin: 0;
+    overflow: hidden;
+}
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
+@import 'bootstrap/scss/bootstrap';
+
+
+.accordion-body {
+    overflow: auto;
+    max-height: 25em;
+}

@@ -1,0 +1,15 @@
+<div class="modal-header">
+    <h4 class="modal-title">Ajouter des Tansactions</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+</div>
+<div class="modal-body">
+    <div class="type-trxs">
+        <label for="estCredit">Transactions de type 'CARTE-CRÉDIT'</label>
+        <input type="checkbox" name="trx-credit" id="trx-credit" [(ngModel)]="estCredit">
+    </div>
+    <textarea class="texterea-liste-trxs" [(ngModel)]="listeTrxs"></textarea>
+</div>
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="passBack()" [disabled]="!listeTrxs">Terminer</button>
+</div>

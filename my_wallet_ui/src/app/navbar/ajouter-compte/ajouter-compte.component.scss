@@ -1,0 +1,37 @@
+.conteneur-comptes {
+
+    min-height: 23em;
+    max-height: 23em;
+    overflow-y: auto;
+
+    .conteneur-compte {
+        display: flex;
+        gap: 1em;
+        padding: 1em 1em;
+
+       
+
+
+        input {
+            width: 100%;
+            padding: 0 0.2em;
+        }
+
+        .btn-supprimer {
+            background-color: orangered;
+            color: white;
+        }
+
+    }
+
+}
+
+.btn-ajouter {
+    background-color: dodgerblue;
+    color: white;
+}
+
+.btn-valider {
+    background-color: forestgreen;
+    color: white;
+}

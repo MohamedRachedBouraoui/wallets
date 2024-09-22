@@ -1,0 +1,110 @@
+.resumes-bilans {
+
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    background-color: whitesmoke;
+    height: 2em;
+    padding: 0.5em;
+
+    // .acc {
+
+    //     width: 28em;
+    // }
+
+    
+
+    .resume-bilan {
+        width: 100%;
+
+
+        .bilan-conteneur-dates {
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 0.3em;
+        }
+
+        .conteneur-revenues-depenses-soldes {
+            display: flex;
+            display: flex;
+            justify-content: space-between;
+
+            .bilan-solde {
+
+                &.ok {
+                    color: green;
+                }
+
+                &.not-ok {
+                    color: orangered;
+                }
+            }
+        }
+    }
+
+    
+
+    .titre-etat-final-comptes {
+        text-align: center;
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+    
+    .conteneur-etats-comptes {
+
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+
+        .conteneur-etat-compte {
+
+            display: flex;
+
+            background-color: white;
+            box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
+
+            .nom-compte {
+                width: 8em;
+                font-weight: bold;
+            }
+
+            .conteneur-montants {
+                display: flex;
+                gap: 1em;
+
+                span {
+                    width: 5em;
+                }
+
+                .etat-solde {
+
+                    &.ok {
+                        color: green;
+                    }
+
+                    &.not-ok {
+                        color: orangered;
+                    }
+                }
+            }
+
+            .element-cliquable {
+
+                cursor: pointer;
+                text-decoration: underline;
+            }
+
+            .icone-afficher-revenues {
+                margin-right: 1em;
+            }
+
+            .icone-afficher-depenses {
+                cursor: pointer;
+            }
+
+        }
+    }
+}

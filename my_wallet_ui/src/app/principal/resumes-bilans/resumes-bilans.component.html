@@ -1,0 +1,48 @@
+<div class="resumes-bilans">
+    <ngb-accordion #acc_resumes_bilans="ngbAccordion" [closeOthers]="true" ngClass="acc">
+        
+
+        <!-- liste-bilans -->
+
+        <ngb-panel *ngFor="let bilan of bilans">
+            <ng-template ngbPanelTitle>
+                <div class="resume-bilan">
+                    <div class="bilan-conteneur-dates">Du <span class="bilan-date">{{bilan.debut | date
+                            :'dd-MM-YY'}}</span> <span>
+                            au </span> <span class="bilan-date">{{bilan.fin | date :'dd-MM-YY'}}</span></div>
+                    <div class="conteneur-revenues-depenses-soldes">
+                        <div class="bilan-revenues"><span><i class="fa-solid fa-arrow-right-to-bracket"></i>
+                            </span><span> {{bilan.revenue | currency}}</span>
+                        </div>
+                        <div class="bilan-depenses"><span><i class="fa-solid fa-arrow-right-from-bracket"></i>
+                            </span><span> {{bilan.depenses | currency}}</span>
+                        </div>
+                        <div [class]="recupererClassBilanSolde(bilan)"><span><i
+                                    class="fa-solid fa-hand-holding-dollar"></i> </span><span> {{(bilan.revenue -
+                                bilan.depenses) |
+                                currency}}</span></div>
+                    </div>
+                </div>
+
+            </ng-template>
+            <ng-template ngbPanelContent>
+                <div class="conteneur-etats-comptes">
+                    <div *ngFor="let etat of bilan.etatComptes" class="conteneur-etat-compte">
+                        <span class="nom-compte">{{etat.nom}} </span>
+                        <div class="conteneur-montants">
+
+                            <span (click)="afficherRevenuesCompte(etat)" title="afficher les revenues"
+                                class="element-cliquable">{{etat.totalDebit
+                                | currency}}</span>
+                            <span (click)="afficherDepenseCompte(etat)" title="afficher les dépenses"
+                                class="element-cliquable">{{etat.totalCredit
+                                | currency}}</span>
+                            <span [class]="recuprerClassEtatCompte(etat.soldePeriode)">{{etat.soldePeriode | currency}}</span>
+                            <span [class]="recuprerClassEtatCompte(etat.solde)">{{etat.solde | currency}}</span>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </ngb-panel>
+    </ngb-accordion>
+</div>

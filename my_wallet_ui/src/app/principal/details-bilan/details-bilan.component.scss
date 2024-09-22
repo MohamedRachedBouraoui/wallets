@@ -1,0 +1,113 @@
+.conteneur-details-bilans {
+
+    min-height: 100%;
+
+    .titre-details-bilan {
+        text-align: center;
+        margin-bottom: 0.5em;
+        font-size: 2em;
+
+        .icone-afficher-graph {
+            cursor: pointer;
+            color: dodgerblue;
+        }
+    }
+
+    .msg-selectionner-etat-compte {
+
+        margin-top: 10em;
+        text-align: center;
+        font-size: 2em;
+    }
+
+    .details-bilan {
+
+        min-height: 49em;
+
+        display: grid;
+        gap: 5em;
+        grid-template-columns: 1fr 1fr;
+
+        .libelle-section-items {
+            text-align: center;
+            font-size: 1.5em;
+            text-decoration: underline;
+        }
+
+        .conteneur-acc-items {
+            max-height: 50em;
+            overflow-y: auto;
+        }
+
+        .msg-aucun-resultat {
+            width: auto;
+
+            text-align: center;
+            margin-top: 10em;
+            font-size: 2em;
+        }
+
+        .conteneur-trxs {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+
+            .card-trxs {
+
+                padding: 1em 0.5em;
+
+                box-shadow: rgb(100 100 111 / 20%) 0px 7px 29px 0px;
+
+                .conteneur-description-trxs {
+                    margin-bottom: 1em;
+                    text-align: center;
+
+                    .desc-trxs {
+                        font-weight: bold;
+                    }
+
+                    .total-trxs {
+                        font-weight: bold;
+                        color: dodgerblue;
+                    }
+                }
+
+                .conteneur-trx {
+                    display: flex;
+                    gap: 1em;
+                }
+            }
+
+        }
+
+        .acc-bilan-categorie-nom {
+            font-weight: bold;
+        }
+
+        .acc-bilan-categorie-total-montant {
+            color: dodgerblue;
+            font-weight: bold;
+        }
+
+        .bilan-etat-compte-trx-edit-icone {
+            cursor: pointer;
+            color: goldenrod;
+        }
+
+        .bilan-etat-compte-trx-credit-montant {
+            color: orangered;
+            font-weight: bold;
+        }
+
+        .bilan-etat-compte-trx-debit-montant {
+            color: green;
+            font-weight: bold;
+        }
+
+        .acc-bilan-categorie-pourcentage {
+            color: green;
+            font-weight: bold;
+        }
+    }
+
+}

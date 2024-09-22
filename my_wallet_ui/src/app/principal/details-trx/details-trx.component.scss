@@ -1,0 +1,29 @@
+.dropdown-menu.show {
+    overflow-y: scroll;
+    height: 15em;
+}
+
+.dropdown {
+    width: 100%;
+
+    .dropdown-toggle {
+        width: 100%;
+
+    }
+}
+
+.conteneur-details-trx {
+
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+
+
+    .libelle {
+        font-weight: bold;
+    }
+
+    .texterea-trx-commentaire {
+        width: 100%;
+    }
+}

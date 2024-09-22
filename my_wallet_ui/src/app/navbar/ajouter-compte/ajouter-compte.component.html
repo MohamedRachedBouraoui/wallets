@@ -1,0 +1,20 @@
+<div class="modal-header">
+    <h4 class="modal-title">Ajouter des comptes</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+</div>
+<div class="conteneur-comptes">
+    <div class="conteneur-compte" *ngFor="let cp of comptes,index as indexCompte">
+
+            
+            <input placeholder='Saisir nom du compte' [(ngModel)]="cp.nom">
+            <input placeholder='Solde de départ' type="number" [(ngModel)]="cp.soldeDepart">
+
+            
+            <button type="button" class="btn btn-outline-dark btn-supprimer" (click)="supprimerCompte(indexCompte)" ><i class="fa-solid fa-trash-can"></i></button>
+    </div>
+
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark btn-ajouter" (click)="ajouterCompte()" >Ajouter</button>
+    <button type="button" class="btn btn-outline-dark btn-valider" (click)="passBack()" [disabled]="desactiverBtn()" >Valider</button>
+</div>

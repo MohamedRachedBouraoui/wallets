@@ -1,0 +1,21 @@
+.conteneur-app {
+
+    min-height: 100vh;
+    
+    display: grid;
+    grid-template-rows: 2fr 28fr;
+    grid-row-gap: 1em;
+    grid-template-areas:
+        "conteneur-app-navbar"
+        "conteneur-app-principal";
+
+}
+
+.conteneur-app-navbar {
+    grid-area: conteneur-app-navbar;
+
+}
+
+.conteneur-app-principal {
+    grid-area: conteneur-app-principal;
+}

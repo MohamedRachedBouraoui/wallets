@@ -1,0 +1,47 @@
+.conteneur-transferts {
+
+    min-height: 23em;
+    max-height: 23em;
+    overflow-y: auto;
+
+    .conteneur-transfert {
+        display: flex;
+        gap: 1em;
+        padding: 1em 1em;
+
+        .item-trsf {
+            min-width: 13em;
+
+            button {
+                width: 100%;
+            }
+
+        }
+
+        .date-trsf {
+            min-width: 10em;
+        }
+
+        .input-pourcentage-trsf {
+            width: 4em;
+            padding: 0 0.2em;
+        }
+
+        .btn-supprimer-trsf {
+            background-color: orangered;
+            color: white;
+        }
+
+    }
+
+}
+
+.btn-ajouter-trsf {
+    background-color: dodgerblue;
+    color: white;
+}
+
+.btn-valider {
+    background-color: forestgreen;
+    color: white;
+}

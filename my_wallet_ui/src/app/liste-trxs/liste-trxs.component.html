@@ -1,0 +1,8 @@
+<div class="conteneur-trx" *ngFor="let trx of trxs">
+
+    <span (click)="modifierTrx(trx)" class="bilan-etat-compte-trx-edit-icone"><i
+            class="fa-solid fa-pen-to-square"></i></span>
+    <span class="bilan-etat-compte-trx-montant">
+        {{trx.montant|currency}}</span>
+    <span> {{trx.date|date:'fullDate'}}</span>
+</div>

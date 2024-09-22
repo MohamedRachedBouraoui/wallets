@@ -1,0 +1,58 @@
+<div class="modal-header">
+    <h4 class="modal-title">Modifier Tansaction</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+</div>
+<div class="modal-body conteneur-details-trx">
+
+    <div>
+        <span class="libelle">Date: </span><span>{{trx.date|date}}</span>
+    </div>
+    <div>
+        <span class="libelle">Montant: </span><span>{{trx.montant|currency}}</span>
+    </div>
+    <div>
+        <span class="libelle">Description: </span><span class="valeur">{{trx.description}}</span>
+    </div>
+    <div>
+        <span class="libelle">Lieu: </span><span>{{trx.lieu}}</span>
+    </div>
+    <div>
+        <span class="libelle">Est dépense: </span><span><input type="checkbox" [(ngModel)]="trx.estDepense"></span>
+    </div>
+    <div>
+        <span class="libelle">Ignorer: </span><span><input type="checkbox" [(ngModel)]="trx.ignorer"></span>
+    </div>
+    <div>
+        <div class="libelle">Commentaire:</div>
+        <textarea class="texterea-trx-commentaire" [(ngModel)]="trx.commentaire"></textarea>
+    </div>
+    <div>
+        <div class="libelle">Catégorie: </div>
+        <div ngbDropdown class="d-inline-block" container="body">
+            <button type="button" class="btn btn-outline-primary" id="dd_categories" ngbDropdownToggle>
+                {{trx.categorie}}
+            </button>
+            <div ngbDropdownMenu aria-labelledby="dd_categories">
+                <button ngbDropdownItem *ngFor="let cat of categories"
+                    (click)="majCategorieTrx(cat.libelle)">{{cat.libelle}}</button>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="libelle">Compte: </div>
+        <div ngbDropdown class="d-inline-block" container="body">
+            <button type="button" class="btn btn-outline-primary" id="dd_comptes" ngbDropdownToggle>
+                {{trx.compte}}
+            </button>
+            <div ngbDropdownMenu aria-labelledby="dd_comptes">
+                <button ngbDropdownItem *ngFor="let cp of comptes" (click)="majCompteTrx(cp.nom)">{{cp.nom}}</button>
+            </div>
+        </div>
+    </div>
+    
+
+</div>
+
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="passBack()">Mettre à jour</button>
+</div>

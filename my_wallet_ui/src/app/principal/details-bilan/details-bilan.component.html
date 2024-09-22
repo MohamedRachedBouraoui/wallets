@@ -1,0 +1,70 @@
+<div class="conteneur-details-bilans">
+    <!--  -->
+    <div *ngIf="etatDeCompteSelectionne; else msg_selectionner_etat_compte">
+        <div class="titre-details-bilan">
+            {{titre}} entre {{etatDeCompteSelectionne.bilanDateDebut | date:'dd-MM-YY'}} et
+            {{etatDeCompteSelectionne.bilanDateFin
+            | date:'dd-MM-YY'}}
+        </div>
+        <div class="details-bilan">
+
+            <div class="msg-aucun-resultat" *ngIf="itemsCompte.length===0">
+                AUCUN RÉSULTATS
+            </div>
+
+            <div class="conteneur-acc-items" *ngIf="itemsCompte">
+
+                <ngb-accordion #acc_items_revenues="ngbAccordion" [closeOthers]="true">
+                    <ngb-panel *ngFor="let item of itemsCompte">
+                        <ng-template ngbPanelTitle>
+                            <div>
+                                <span class="acc-bilan-categorie-nom">{{item.categorie}}: </span>
+                                <span class="acc-bilan-categorie-total-montant">{{item.total() |currency}}</span>
+                                <span class="acc-bilan-categorie-pourcentage"> ({{item.pourcentage| number:'1.2-2'}}
+                                    %)</span>
+                            </div>
+                        </ng-template>
+
+                        <ng-template ngbPanelContent>
+                            <div class="conteneur-trxs">
+                                <div class="card-trxs" *ngFor="let trxsParDesc of item.trxsParDescription">
+                                    <div class="conteneur-description-trxs">
+                                        <span class="desc-trxs">{{trxsParDesc.desc}}</span><span class="total-trxs">
+                                            {{trxsParDesc.total |currency}}</span>
+                                    </div>
+                                    <div class="conteneur-trx" *ngFor="let trx of trxsParDesc.trxs">
+
+                                        <span *ngIf="item.categorie.toLocaleLowerCase()!=='transfert'"
+                                            (click)="modifierTrx(trx)" class="bilan-etat-compte-trx-edit-icone"><i
+                                                class="fa-solid fa-pen-to-square"></i></span>
+                                        <span class="bilan-etat-compte-trx-debit-montant">
+                                            {{trx.montant|currency}}</span>
+                                        <span> {{trx.date|date:'fullDate'}}</span>
+                                        <span *ngIf="trx.commentaire" title="{{trx.commentaire}}">
+
+                                            <i class="fa-solid fa-circle-info"></i></span>
+
+                                        <!-- <span *ngIf="trx.compteBancaire.toLocaleLowerCase().indexOf('credit')>-1"><i
+                                                class="fa-brands fa-cc-mastercard"></i></span>
+                                        <span *ngIf="trx.compteBancaire.toLocaleLowerCase().indexOf('credit')===-1"><i
+                                                class="fa-solid fa-credit-card-front"></i></span> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </ngb-panel>
+
+                </ngb-accordion>
+
+            </div>
+
+            <app-graph-bilan [items]="itemGraph"></app-graph-bilan>
+        </div>
+    </div>
+
+    <ng-template #msg_selectionner_etat_compte>
+        <div class="msg-selectionner-etat-compte">
+            Sélectionnez un état de compte dans la liste à gauche
+        </div>
+    </ng-template>
+</div>
